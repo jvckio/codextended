@@ -27,7 +27,7 @@ uFEATUREUNSAFE=false
 DEBUG=false
 DEFINES=""
 
-while getopts “hsmdu15” qo
+while getopts "hsmdu15" qo
 do
 	case $qo in
 	h)
@@ -179,6 +179,7 @@ $compiler $params -c scr_method_player.c -o obj/scr_method_player.o
 $compiler $params -c scr_string.c -o obj/scr_string.o
 $compiler $params -c scr_fields.c -o obj/scr_fields.o
 $compiler $params -c scr_method_entity.c -o obj/scr_method_entity.o
+$compiler $params -c scr_socket.c -o obj/scr_socket.o
 
 if [ $uMYSQL = true ]; then
 $compiler $params -c scr_mysql.c -o obj/scr_mysql.o

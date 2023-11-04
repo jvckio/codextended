@@ -230,6 +230,14 @@ SCRIPTFUNCTION scriptFunctions[] = {
     {"mysql_get_connection", GScr_mysql_get_connection, 0},
 	#endif
 	
+	// Socket
+    {"socket_init", GScr_socket_init, 0},
+    {"socket_bind", GScr_socket_bind, 0},
+    {"socket_connect", GScr_socket_connect, 0},
+    {"socket_send", GScr_socket_send, 0},
+    {"socket_receive", GScr_socket_receive, 0},
+    {"socket_close", GScr_socket_close, 0},
+
 	// Math
 	{"sqrt", Math_Scr_sqrt, 0},
 	
@@ -472,6 +480,7 @@ SCRIPTFUNCTIONCALL Scr_GetCustomFunction(const char** fname, int* fdev) {
     if(!m) {
         for(unsigned int i = 0; scriptFunctions[i].name; i++) {
             if(!strcmp(*fname, scriptFunctions[i].name)) {
+                cprintf(PRINT_GOOD, "Scr_GetCustomFunction: %s\n", *fname);
                 SCRIPTFUNCTION func = scriptFunctions[i];
                 *fname = func.name;
                 *fdev = func.developer;
@@ -489,6 +498,7 @@ SCRIPTFUNCTIONCALL Scr_GetCustomMethod(const char** fname, int* fdev) {
     if(!m) {
         for(unsigned int i = 0; scriptMethods[i].name; i++) {
             if(!strcmp(*fname, scriptMethods[i].name)) {
+                cprintf(PRINT_GOOD, "Scr_GetCustomMethod: %s\n", *fname);
                 SCRIPTFUNCTION func = scriptMethods[i];
                 *fname = func.name;
                 *fdev = func.developer;

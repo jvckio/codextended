@@ -163,6 +163,7 @@ int kbhit() {
 
 #if 1
 int main(int argc, char **argv) {
+    cprintf(PRINT_GOOD, "CoDExtended main\n");
 	
 	bool WebServer_Start();
 	WebServer_Start();
@@ -171,6 +172,8 @@ int main(int argc, char **argv) {
 }
 #else
 int splashscreen() {
+    cprintf(PRINT_GOOD, "CoDExtended splashscreen\n");
+
 	#define RAND_COL_TEXT (31 + (rand() % 6))
 	#define RAND_COL_BG (40 + (rand() % 7))
 	int c, a;

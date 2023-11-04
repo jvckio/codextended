@@ -442,6 +442,19 @@ void GScr_mysql_real_escape_string(int);
 void GScr_mysql_store_result(int);
 void GScr_mysql_get_connection(int);
 #endif
+
+/*
+=============
+SOCKET
+=============
+*/
+void GScr_socket_init(int);
+void GScr_socket_bind(int);
+void GScr_socket_connect(int);
+void GScr_socket_send(int);
+void GScr_socket_receive(int);
+void GScr_socket_close(int);
+
 /*
 =============
 PLAYER METHODS

@@ -20,16 +20,19 @@
 void CoDExtended();
 
 int __attribute__((visibility ("default"))) codextended_module_load() {
+    cprintf(PRINT_GOOD, "codextended_module_load\n");
 	CoDExtended();
 	return BUILDNUMBER;
 }
 
 void __attribute__ ((constructor)) __attribute__((visibility ("default"))) codextended_load(void) {
+    cprintf(PRINT_GOOD, "codextended_load\n");
 	CoDExtended();
 }
 // Odd, isn't it? 1.5 destructor works (apparently it should work but the stdout is closed or something... cba to rewrite for now)
 #if CODPATCH == 5
 void __attribute__ ((destructor)) __attribute__((visibility ("default"))) codextended_unload( void ) {
+    cprintf(PRINT_GOOD, "codextended_unload\n");
 	COD_Destructor();
 }
 #endif

@@ -121,19 +121,19 @@ void PlayerCmd_SetMoveSpeedScale(int self) {
 	*(float*)((int)gclient + 848) = Scr_GetFloat(0);
 }
 
-void PlayerCmd_GetScreenshot(int a1) {
-	client_t* cl = getclient(a1);
-	if(!cl || !strlen(sv_screenshotURL->string)) {
-		Scr_AddString("");
-		return;
-	}
-
-	char filename[32];
-	Com_sprintf(filename, sizeof(filename), "getss-%d-%d", get_client_number(cl), time(NULL)); // getss-1-1587340800
-
-	SV_SendServerCommand(cl, 1, va("v getss \"%s\"", filename));
-	Scr_AddString(filename);
-}
+//void PlayerCmd_GetScreenshot(int a1) {
+//	client_t* cl = getclient(a1);
+//	if(!cl || !strlen(sv_screenshotURL->string)) {
+//		Scr_AddString("");
+//		return;
+//	}
+//
+//	char filename[32];
+//	Com_sprintf(filename, sizeof(filename), "getss-%d-%d", get_client_number(cl), time(NULL)); // getss-1-1587340800
+//
+//	SV_SendServerCommand(cl, 1, va("v getss \"%s\"", filename));
+//	Scr_AddString(filename);
+//}
 
 void PlayerCmd_GetPing(int self) {
 	client_t *cl = getclient(self);

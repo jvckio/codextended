@@ -558,6 +558,8 @@ void PM_ProjectVelocity(vec3_t in, vec3_t normal, vec3_t out) {
 cvar_t *x_cl_bounce;
 
 void PM_Bounce(vec3_t in, vec3_t normal, vec3_t out) {
+    x_cl_bounce = Cvar_Get("x_cl_bounce", "0", 0);
+
 	if (x_cl_bounce->integer) {
 		PM_ProjectVelocity(in, normal, out);
 	} else {
